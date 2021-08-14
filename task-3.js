@@ -2,18 +2,33 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const makeTransaction = (transaction, onSuccess, onError) => {
+// const makeTransaction = (transaction, onSuccess, onError) => {
+//   const delay = randomIntegerFromInterval(200, 500);
+
+//   setTimeout(() => {
+//     const canProcess = Math.random() > 0.3;
+
+//     if (canProcess) {
+//       onSuccess(transaction.id, delay);
+//     } else {
+//       onError(transaction.id);
+//     }
+//   }, delay);
+// };
+
+const makeTransaction = (transaction) => {
   const delay = randomIntegerFromInterval(200, 500);
+  return new Promise((onSuccess, onError) => {
+    setTimeout(() => {
+      const canProcess = Math.random() > 0.3;
 
-  setTimeout(() => {
-    const canProcess = Math.random() > 0.3;
-
-    if (canProcess) {
-      onSuccess(transaction.id, delay);
-    } else {
-      onError(transaction.id);
-    }
-  }, delay);
+      if (canProcess) {
+        onSuccess(transaction.id, delay);
+      } else {
+        onError(transaction.id);
+      }
+    }, delay)
+  });  
 };
 
 const logSuccess = (id, time) => {
