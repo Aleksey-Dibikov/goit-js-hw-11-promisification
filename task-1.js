@@ -4,7 +4,7 @@ const delay = ms => {
     })// Твой код
 };
 
-const logger = time => console.log(`Resolved after ${time}ms`);
+const logger1 = time => console.log(`Resolved after ${time}ms`);
 
 // Вызовы функции для проверки
 delay(2000).then(logger); // Resolved after 2000ms
