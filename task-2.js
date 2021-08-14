@@ -29,16 +29,16 @@ const toggleUserState = (allUsers, userName) => {
 //   });
 // };
 
-const logger2 = updatedUsers => console.table(updatedUsers);
+const result = updatedUsers => console.table(updatedUsers);
 
 /*
  * Сейчас работает так
  */
-// toggleUserState(users, 'Mango', logger2);
-// toggleUserState(users, 'Lux', logger2);
+// toggleUserState(users, 'Mango', result);
+// toggleUserState(users, 'Lux', result);
 
 /*
  * Должно работать так
  */
-toggleUserState(users, 'Mango').then(logger2);
-toggleUserState(users, 'Lux').then(logger2);
+toggleUserState(users, 'Mango').then(result);
+toggleUserState(users, 'Lux').then(result);
