@@ -1,5 +1,7 @@
 const delay = ms => {
-  // Твой код
+    return new Promise(resolved => {
+        setTimeout(() => resolved(ms), ms)
+    })// Твой код
 };
 
 const logger = time => console.log(`Resolved after ${time}ms`);
